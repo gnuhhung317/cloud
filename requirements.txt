@@ -1,0 +1,48 @@
+# Python dependencies for Viettel IDC Learning Repository
+
+# Core utilities
+requests>=2.31.0
+pyyaml>=6.0
+jinja2>=3.1.0
+click>=8.1.0
+
+# Cloud SDKs
+boto3>=1.28.0          # AWS SDK
+azure-sdk-for-python>=1.0.0  # Azure SDK
+google-cloud>=0.34.0   # Google Cloud SDK
+
+# Database connectors
+psycopg2-binary>=2.9.0 # PostgreSQL
+pymongo>=4.5.0         # MongoDB
+mysql-connector-python>=8.1.0  # MySQL
+
+# Infrastructure tools
+ansible>=8.0.0         # Configuration management
+paramiko>=3.3.0        # SSH client
+fabric>=3.2.0          # Remote deployment
+
+# Container tools
+docker>=6.1.0          # Docker SDK
+kubernetes>=27.2.0     # Kubernetes client
+
+# Monitoring and logging
+prometheus-client>=0.17.0
+elasticsearch>=8.9.0
+
+# Automation scripts
+schedule>=1.2.0        # Task scheduling
+watchdog>=3.0.0        # File system monitoring
+
+# System monitoring
+psutil>=5.9.0          # System and process utilities
+netifaces>=0.11.0      # Network interface info
+
+# Development tools
+pytest>=7.4.0         # Testing framework
+black>=23.7.0          # Code formatter
+flake8>=6.0.0          # Linting
+mypy>=1.5.0            # Type checking
+
+# Documentation
+mkdocs>=1.5.0          # Documentation generator
+mkdocs-material>=9.2.0 # Material theme

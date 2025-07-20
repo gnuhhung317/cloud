@@ -1,0 +1,103 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Setup Learning Environment",
+            "type": "shell",
+            "command": "python",
+            "args": ["-m", "venv", "venv"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/Scripts/python.exe",
+            "args": ["-m", "pip", "install", "-r", "requirements.txt"],
+            "group": "build",
+            "dependsOn": "Setup Learning Environment",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Check Learning Progress",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/Scripts/python.exe",
+            "args": ["scripts/tracker.py", "status"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Update Module Progress",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/Scripts/python.exe",
+            "args": ["scripts/tracker.py", "update", "${input:moduleId}", "${input:progressPercent}", "${input:hoursSpent}"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate Weekly Report",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/Scripts/python.exe",
+            "args": ["scripts/tracker.py", "report"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "moduleId",
+            "description": "Select module to update",
+            "type": "pickString",
+            "options": [
+                "01-operating-systems",
+                "02-virtualization-cloud", 
+                "03-container-management",
+                "04-database-management",
+                "05-automation-tools",
+                "06-programming",
+                "07-soft-skills"
+            ]
+        },
+        {
+            "id": "progressPercent",
+            "description": "Progress percentage (0-100)",
+            "type": "promptString"
+        },
+        {
+            "id": "hoursSpent",
+            "description": "Hours spent studying",
+            "type": "promptString",
+            "default": "0"
+        }
+    ]
+}
